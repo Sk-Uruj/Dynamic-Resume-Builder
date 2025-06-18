@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Editor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/template-editor.css" />
+</head>
+
+<body>
+  <div class="resume-builder-container">
+    <!-- LEFT SIDE: FORM -->
+    <div class="form-side">
+      <div class="top-nav">
+        <button onclick="goBackToTemplates()">← Back to Templates</button>
+        <div class="template-switcher">
+          <span>Template:</span>
+          <button class="active">Modern</button>
+          <button>Classic</button>
+          <button>Creative</button>
+          <button>Minimal</button>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('personal')">
+          <i class="fas fa-user"></i> Personal
+        </button>
+        <button class="tab" onclick="showTab('summary')">
+          <i class="fas fa-align-left"></i> Summary
+        </button>
+        <button class="tab" onclick="showTab('experience')">
+          <i class="fas fa-briefcase"></i> Experience
+        </button>
+        <button class="tab" onclick="showTab('education')">
+          <i class="fas fa-graduation-cap"></i> Education
+        </button>
+        <button class="tab" onclick="showTab('skills')">
+          <i class="fas fa-tools"></i> Skills
+        </button>
+        <button class="tab" onclick="showTab('projects')">
+          <i class="fas fa-code"></i> Projects
+        </button>
+
+      </div>
+
+      <div class="tab-content" id="tab-personal">
+        <h2>Personal Information</h2>
+        <div class="form-group">
+          <input type="text" placeholder="Full Name" />
+          <input type="text" placeholder="Email" />
+          <input type="text" placeholder="Phone" />
+          <input type="text" placeholder="Location" />
+          <input type="text" placeholder="LinkedIn (optional)" />
+          <input type="text" placeholder="Portfolio (optional)" />
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-summary" style="display:none;">
+        <h2>About </h2>
+        <div class="form-group">
+          <textarea id="summary-input" placeholder="Describe yourself"></textarea>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-experience" style="display: none;">
+        <h1>Work Experience</h1><br>
+        <div class="form-group" id="experience-entries"></div>
+        <button class="add-btn" onclick="addExperience()">Add Experience</button>
+      </div>
+
+      <div class="tab-content" id="tab-education" style="display: none;">
+        <section id="education-section">
+          <h2>Education</h2>
+          <div id="education-entries" class="entry-container"></div>
+          <button onclick="addEducation()" class="add-edu-btn">+ Add Education</button>
+        </section>
+      </div>
+
+
+      <div class="tab-content" id="tab-skills" style="display: none;">
+        <h2>Skills</h2>
+        <div class="form-group">
+          <input type="text" id="skill-input" placeholder="Enter a skill (e.g. HTML)" />
+          <button id="add-skill-btn" class="add-btn">+ Add Skill</button>
+          <div id="skill-list" class="skill-list"></div>
+        </div>
+      </div>
+
+
+      <div class="tab-content" id="tab-projects" style="display: none;">
+        <h2>Projects</h2>
+        <div id="project-entries"></div>
+        <button class="add-btn" onclick="addProject()">+ Add Project</button>
+      </div>
+
+
+    </div>
+
+    <!-- RIGHT SIDE: PREVIEW -->
+    <div class="preview-side">
+      <h3>Live Preview</h3>
+      <div class="preview-header">
+        <button class="pdf-btn">Download PDF</button>
+        <button class="word-btn">Download Word</button>
+      </div>
+
+      <div class="resume-preview">
+        <!-- TEMPLATE 1 -->
+        <div id="template1-layout" class="resume-layout">
+          <h1 class="name-preview"><span>Your Name</span></h1>
+          <p class="email-preview"><i class="fa-solid fa-envelope"></i> <span>your.email@example.com</span></p>
+          <p class="phone-preview"><i class="fa-solid fa-phone"></i> <span>123-456-7890</span></p>
+          <p class="location-preview"><i class="fa-solid fa-location-dot"></i> <span>Your City</span></p>
+          <p class="linkedin-preview"><i class="fa-brands fa-linkedin"></i> <span>linkedin.com/in/yourprofile</span></p>
+          <p class="portfolio-preview"><i class="fa-solid fa-globe"></i> <span>yourportfolio.com</span></p>
+
+          <br>
+          <hr><br>
+
+          <section id="preview-summary" class="preview-section">
+            <p class="summary-text"></p>
+            <br>
+          </section>
+
+          <section id="template1-experience" class="preview-section" style="display: none;"></section>
+
+        </div>
+
+        <!-- TEMPLATE 2 -->
+        <div id="template2-layout" class="resume-layout" style="display: none;">
+          <h1 class="name-preview"><span>Your Name</span></h1>
+          <p class="email-preview"><i class="fa-solid fa-envelope"></i> <span>your.email@example.com</span></p>
+          <p class="phone-preview"><i class="fa-solid fa-phone"></i> <span>123-456-7890</span></p>
+          <p class="location-preview"><i class="fa-solid fa-location-dot"></i> <span>Your City</span></p>
+          <p class="linkedin-preview"><i class="fa-brands fa-linkedin"></i> <span>linkedin.com/in/yourprofile</span></p>
+          <p class="portfolio-preview"><i class="fa-solid fa-globe"></i> <span>yourportfolio.com</span></p>
+
+          <br>
+          <hr><br>
+          <section id="preview-summary" class="preview-section">
+            <p class="summary-text"></p>
+            <br>
+          </section>
+
+          <section id="template2-experience" class="preview-section" style="display: none;"></section>
+
+        </div>
+
+        <!-- TEMPLATE 3 -->
+        <div id="template3-layout" class="resume-layout" style="display: none;">
+          <h1 class="name-preview"><span>Your Name</span></h1>
+          <p class="email-preview"><i class="fa-solid fa-envelope"></i> <span>your.email@example.com</span></p>
+          <p class="phone-preview"><i class="fa-solid fa-phone"></i> <span>123-456-7890</span></p>
+          <p class="location-preview"><i class="fa-solid fa-location-dot"></i> <span>Your City</span></p>
+          <p class="linkedin-preview"><i class="fa-brands fa-linkedin"></i> <span>linkedin.com/in/yourprofile</span></p>
+          <p class="portfolio-preview"><i class="fa-solid fa-globe"></i> <span>yourportfolio.com</span></p>
+
+          <br>
+          <hr><br>
+          <section id="preview-summary" class="preview-section">
+            <p class="summary-text"></p>
+            <br>
+            <hr><br>
+          </section>
+
+          <section id="template3-experience" class="preview-section" style="display: none;"></section>
+
+        </div>
+
+        <!-- TEMPLATE 4 -->
+        <div id="template4-layout" class="resume-layout" style="display: none;">
+          <h1 class="name-preview"><span style="color:black">Your Name</span></h1>
+          <p class="email-preview"><i class="fa-solid fa-envelope"></i> <span>your.email@example.com</span></p>
+          <p class="phone-preview"><i class="fa-solid fa-phone"></i> <span>123-456-7890</span></p>
+          <p class="location-preview"><i class="fa-solid fa-location-dot"></i> <span>Your City</span></p>
+          <p class="linkedin-preview"><i class="fa-brands fa-linkedin"></i> <span>linkedin.com/in/yourprofile</span></p>
+          <p class="portfolio-preview"><i class="fa-solid fa-globe"></i> <span>yourportfolio.com</span></p>
+
+          <br>
+          <hr>
+
+          <section id="preview-summary" class="preview-section">
+            <p class="summary-text">""</p>
+          </section>
+
+          <section id="template4-experience" class="preview-section" style="display: none;"></section>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTemplate = localStorage.getItem("selectedTemplate") || "template1";
+      switchTemplateLayout(savedTemplate);
+
+      // Optional: highlight active button based on selected template
+      const buttons = document.querySelectorAll(".template-switcher button");
+      const templateMap = {
+        template1: 0,
+        template2: 1,
+        template3: 2,
+        template4: 3
+      };
+      if (templateMap[savedTemplate] !== undefined) {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        buttons[templateMap[savedTemplate]].classList.add("active");
+      }
+    });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Resume Template</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <section class="container">
+    <h1 class="main-heading">Choose Your Perfect Resume Template</h1>
+    <p class="sub-heading">
+      Select from our professionally designed templates to create a resume that stands out
+    </p>
+
+    <div class="template-grid">
+      <!-- Template 1 -->
+      <div class="template-card blue" onclick="selectTemplate('template1')">
+        <img src="templates/Professional-Resume-Template.jpg" alt="Modern Template" class="template-img1" />
+        <h2>Modern</h2>
+        <p>Clean and contemporary design with subtle colors</p>
+        <button>Select Template</button>
+      </div>
+
+      <!-- Template 2 -->
+      <div class="template-card dark" onclick="selectTemplate('template2')">
+        <img src="templates/google_docs_resume_templates_006.jpg" alt="Classic Template" class="template-img2" />
+        <h2>Classic</h2>
+        <p>Traditional layout perfect for corporate environments</p>
+        <button>Select Template</button>
+      </div>
+
+      <!-- Template 3 -->
+      <div class="template-card pink" onclick="selectTemplate('template3')">
+        <img src="templates/modern-resume-gold.png" alt="Creative Template" class="template-img1" />
+        <h2>Creative</h2>
+        <p>Bold design for creative professionals</p>
+        <button>Select Template</button>
+      </div>
+
+      <!-- Template 4 -->
+      <div class="template-card green" onclick="selectTemplate('template4')">
+        <img src="templates/5d4c4b8ab77511a2ae6af6c862dcdc6a.jpg" alt="Minimal Template" class="template-img1" />
+        <h2>Minimal</h2>
+        <p>Simple and elegant with focus on content</p>
+        <button>Select Template</button>
+      </div>
+    </div>
+  </section>
+
+  <p id="closing-line">Don't worry - you can switch templates later without losing your data!<p>
+
+  <script src="script.js"></script>
+</body>
+</html>

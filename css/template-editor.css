@@ -1,0 +1,788 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+/* Main Container */
+.resume-builder-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Form Side */
+.form-side {
+  width: 45%;
+  background-color: #f9fafb;
+  padding: 24px;
+  border-right: 1px solid #e5e7eb;
+  overflow-y: auto;
+}
+
+/* Top Navigation */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.top-nav button {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.template-switcher {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.template-switcher button {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.template-switcher button.active {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #ccc transparent;
+}
+
+/* For Webkit-based browsers (Chrome, Edge, etc.) */
+.tabs::-webkit-scrollbar {
+  height: 6px;
+}
+.tabs::-webkit-scrollbar-track {
+  background: transparent;
+}
+.tabs::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.tab {
+  flex-shrink: 0;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  color: #6b7280;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  background-color: #f3f4f6;
+}
+
+.tab.active {
+  border-bottom: 3px solid #3b82f6;
+  color: #111827;
+  background-color: #e0f0ff;
+}
+
+
+/* Form Group Inputs */
+.tab-content h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group input {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+}
+
+
+/* Right Preview Side */
+.preview-side {
+  width: 55%;
+  background-color: white;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.preview-header h3 {
+  font-size: 20px;
+  color: #111827;
+}
+
+.pdf-btn,
+.word-btn {
+  padding: 8px 12px;
+  margin-left: 8px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pdf-btn:hover,
+.word-btn:hover {
+  background-color: #1e40af;
+}
+
+
+
+/* Resume Preview Area */
+.resume-preview {
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.resume-preview h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fefeff;
+  margin-bottom: 12px;
+}
+
+/* Modern (template1) */
+#template1-layout {
+  background: linear-gradient(135deg, #de3aa5, #7e5bef);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Section headers */
+#template1-layout h2 {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Experience / Education entries */
+#template1-layout .experience-preview-entry,
+#template1-layout .education-preview-entry {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  transition: transform 0.3s ease;
+}
+
+#template1-layout .experience-preview-entry:hover,
+#template1-layout .education-preview-entry:hover {
+  transform: scale(1.02);
+}
+
+/* Skill tags */
+#template1-layout ul li {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin: 5px;
+  font-weight: bold;
+}
+
+/* Summary quote styling */
+#template1-layout .summary-text {
+  font-style: italic;
+  font-size: 1.1em;
+  color: #e0e0e0;
+}
+
+
+/* Classic (template2) */
+#template2-layout {
+  background: #ffffff;
+  color: #333;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  padding: 30px;
+  border-radius: 0;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Headings */
+#template2-layout h1, 
+#template2-layout h2 {
+  color: #0d3b66;
+  border-bottom: 1px solid #0d3b66;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Personal info (name + contact) */
+#template2-layout .header {
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+#template2-layout .header h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+#template2-layout .header p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Sections */
+#template2-layout .section {
+  margin-bottom: 25px;
+}
+
+#template2-layout .section-title {
+  color: #0d3b66;
+  font-size: 18px;
+  border-bottom: 1px solid #0d3b66;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* Experience/Education Items */
+#template2-layout .entry {
+  margin-bottom: 15px;
+}
+
+#template2-layout .entry-title {
+  font-weight: bold;
+  color: #222;
+}
+
+#template2-layout .entry-subtitle {
+  font-size: 14px;
+  color: #555;
+}
+
+#template2-layout .entry-date {
+  float: right;
+  font-size: 13px;
+  color: #888;
+}
+
+/* Skills as flat badges */
+#template2-layout .skills-list li {
+  display: inline-block;
+  background: #e6e6e6;
+  color: #333;
+  border-radius: 4px;
+  padding: 4px 10px;
+  margin: 4px;
+  font-size: 13px;
+}
+
+/* Clear floats */
+#template2-layout::after,
+#template2-layout .entry::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+/* Creative (template3) */
+
+#template3-layout {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a40, #3f0071, #ff0080);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+.resume-card {
+  width: 100%;
+  max-width: 950px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.3);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Left Panel */
+.resume-left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  padding-right: 30px;
+}
+
+.profile-pic {
+  background: linear-gradient(to right, #ff0080, #a100ff);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  font-size: 38px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
+}
+
+.name {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.contact-info p, .edu-block p, .skills-block li {
+  font-size: 14px;
+  margin: 4px 0;
+  color: #ccc;
+}
+
+.edu-block,
+.skills-block {
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Skills Styling */
+.skills-block ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.skills-block li {
+  background: rgba(255, 0, 128, 0.15);
+  border: 1px solid rgba(255, 0, 128, 0.4);
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 12px;
+}
+
+/* Right Panel */
+.resume-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section {
+  animation: slideUp 0.8s ease forwards;
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 4px solid #ff66c4;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.section h3 {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #ff66c4;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 6px;
+}
+
+.entry {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.entry-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.entry-sub {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.entry-date {
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Minimal (template4) */
+
+#template4-layout {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #000;
+  background: #fff;
+  padding: 40px;
+  max-width: 850px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header .contact {
+  font-size: 14px;
+  color: #222;
+  margin-top: 8px;
+}
+
+.contact span {
+  margin-right: 15px;
+}
+
+/* Section Titles */
+.section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+}
+
+/* Entries */
+.entry {
+  margin-bottom: 14px;
+}
+
+.entry-title {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.entry-sub {
+  font-size: 14px;
+  color: #333;
+}
+
+.entry-date {
+  font-size: 13px;
+  color: #555;
+  font-style: italic;
+}
+
+/* Skills */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  font-size: 13px;
+  background: #f2f2f2;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
+/* Projects / Summary Paragraph */
+.section p {
+  font-size: 14px;
+  color: #111;
+  margin: 6px 0;
+}
+
+
+/* //Experience */
+.experience-entry-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Arrange the first row horizontally */
+.experience-entry-container .form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+/* Make inputs share available space */
+.experience-entry-container input[type="text"],
+.experience-entry-container input[type="date"],
+.experience-entry-container textarea {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Ensure text area goes full width below */
+.experience-entry-container textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Checkbox label styling */
+.experience-entry-container label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Remove button - styled like a text link */
+.experience-entry-container button {
+  margin-top: 10px;
+  background: none;
+  color: #e63946;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  text-align: left;
+}
+
+.experience-entry-container button:hover {
+  text-decoration: underline;
+}
+
+/* education */
+.entry-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.education-entry {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.education-entry .form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.education-entry input,
+.education-entry textarea {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.education-entry button {
+  background: none;
+  color: crimson;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 4px 8px;
+}
+
+.education-entry button:hover {
+  text-decoration: underline;
+}
+
+.add-edu-btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-edu-btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Skills */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.skill-tag {
+  background-color: #eee;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.skill-tag button {
+  background: none;
+  border: none;
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Project  */
+.project-entry {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+.project-entry input,
+.project-entry textarea {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.project-entry button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.project-entry button:hover {
+  background-color: #c0392b;
+}
+.add-btn {
+  background-color: #2563eb; /* Same blue as "Download PDF" */
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 150px;
+}
+
+.add-btn:hover {
+  background-color: #1e40af; /* Darker blue on hover */
+}
+
